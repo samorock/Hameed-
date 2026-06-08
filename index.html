@@ -708,26 +708,30 @@
   </div>
 
   <div class="contact-form reveal">
+    <form action="https://formspree.io/f/mwvjowwa" method="POST">
     <div class="form-row">
+      
       <div class="form-group">
+
         <label>Name</label>
-        <input type="text" placeholder="Your name" />
+        <input type="text" name="name" placeholder="Your name" />
       </div>
       <div class="form-group">
         <label>Email</label>
-        <input type="email" placeholder="your@email.com" />
+        <input type="email" name="email" placeholder="your@email.com" />
       </div>
     </div>
     <div class="form-group">
       <label>Subject</label>
-      <input type="text" placeholder="Project inquiry, freelance, etc." />
+      <input type="text" name="subject" placeholder="Project inquiry, freelance, etc." />
     </div>
     <div class="form-group">
       <label>Message</label>
-      <textarea placeholder="Tell me about your project..."></textarea>
+      <textarea name="message" placeholder="Tell me about your project..."></textarea>
     </div>
     <button class="form-submit" onclick="handleSend(this)">Send Message →</button>
     <p class="form-note" id="form-msg"></p>
+    </form>
   </div>
 </section>
 
