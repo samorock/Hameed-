@@ -706,14 +706,11 @@
       </a>
     </div>
   </div>
-
+<form action="https://formspree.io/f/mwvjowwa" method="POST">
   <div class="contact-form reveal">
-    <form action="https://formspree.io/f/mwvjowwa" method="POST">
-    <div class="form-row">
-      
-      <div class="form-group">
-
-        <label>Name</label>
+     <div class="form-row">
+       <div class="form-group">
+       <label>Name</label>
         <input type="text" name="name" placeholder="Your name" />
       </div>
       <div class="form-group">
@@ -729,10 +726,11 @@
       <label>Message</label>
       <textarea name="message" placeholder="Tell me about your project..."></textarea>
     </div>
-    <button class="form-submit" onclick="handleSend(this)">Send Message →</button>
+      <input type="hidden" name="_next" value="https://hameed-three.vercel.app/" />
+    <button type="submit" class="form-submit">Send Message →</button>
     <p class="form-note" id="form-msg"></p>
-    </form>
-  </div>
+    </div>
+</form>
 </section>
 
 <!-- FOOTER -->
