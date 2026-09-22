@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Samod Tech — Web Developer, Ogun State</title>
+<meta name="description" content="Samod Tech builds portfolios, landing pages, booking systems, e-commerce stores and AI video content for brands that want to move faster online." />
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,600,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0b0b14;
+    --surface: #12121e;
+    --surface-2: #181826;
+    --line: rgba(245,243,238,0.10);
+    --text: #f5f3ee;
+    --text-muted: #9b9aa8;
+    --gold: #f2a93b;
+    --gold-dim: #b9822f;
+    --violet: #6e6ade;
+    --radius: 4px;
+    --wrap: 1160px;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Satoshi', -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,h2,h3,.display{
+    font-family: 'Clash Display', 'Satoshi', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+
+  img{ max-width:100%; display:block; }
+
+  .wrap{
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  ::selection{ background: var(--gold); color: #14100a; }
+
+  /* ---------- Nav ---------- */
+
+  nav{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 22px 0;
+    background: linear-gradient(to bottom, rgba(11,11,20,0.92), rgba(11,11,20,0));
+    backdrop-filter: blur(6px);
+  }
+
+  nav .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo{
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .logo .dot{ color: var(--gold); font-size: 1.4rem; line-height: 0; }
+
+  .nav-links{
+    display: flex;
+    gap: 36px;
+    align-items: center;
+  }
+
+  .nav-links a{
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover{ color: var(--text); }
+
+  .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 22px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid var(--line);
+    transition: border-color 0.25s ease, background 0.25s ease, transform 0.15s ease;
+  }
+  .btn:hover{ transform: translateY(-1px); }
+
+  .btn-gold{
+    background: var(--gold);
+    color: #14100a;
+    border-color: var(--gold);
+  }
+  .btn-gold:hover{ background: #ffbf5c; border-color: #ffbf5c; }
+
+  .btn-ghost:hover{ border-color: rgba(245,243,238,0.4); }
+
+  /* ---------- Hero ---------- */
+
+  .hero{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 90px;
+    overflow: hidden;
+  }
+
+  #hero-canvas{
+    position: absolute;
+    top: 0; right: 0;
+    width: 62%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.9;
+  }
+
+  .hero .wrap{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .hero-content{ max-width: 620px; }
+
+  .eyebrow-line{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 26px;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+  .eyebrow-line .stroke{
+    width: 34px;
+    height: 1px;
+    background: var(--gold-dim);
+  }
+
+  .hero h1{
+    font-size: clamp(2.6rem, 5.4vw, 4.4rem);
+    margin-bottom: 26px;
+  }
+
+  .hero h1 em{
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .hero p.lede{
+    font-size: 1.12rem;
+    color: var(--text-muted);
+    max-width: 480px;
+    margin-bottom: 38px;
+  }
+
+  .hero-actions{
+    display: flex;
+    gap: 16px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+  }
+
+  .hero-meta{
+    display: flex;
+    gap: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    max-width: 520px;
+  }
+  .hero-meta div{ flex: 1; }
+  .hero-meta .num{
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.7rem;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .hero-meta .label{
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  .scroll-cue{
+    position: absolute;
+    bottom: 36px;
+    left: 32px;
+    z-index: 2;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .scroll-cue .line{
+    width: 1px;
+    height: 34px;
+    background: linear-gradient(var(--gold), transparent);
+    animation: scrollmove 2s ease-in-out infinite;
+  }
+  @keyframes scrollmove{
+    0%,100%{ transform: translateY(0); opacity: 1; }
+    50%{ transform: translateY(6px); opacity: 0.4; }
+  }
+
+  /* ---------- Section shared ---------- */
+
+  section{ padding: 130px 0; position: relative; }
+
+  .section-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 70px;
+    flex-wrap: wrap;
+  }
+
+  .section-head h2{
+    font-size: clamp(2rem, 3.6vw, 2.9rem);
+    max-width: 520px;
+  }
+
+  .section-head p{
+    color: var(--text-muted);
+    max-width: 340px;
+    padding-bottom: 6px;
+  }
+
+  .kicker{
+    color: var(--gold);
+    font-size: 0.9rem;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  /* ---------- Services ---------- */
+
+  .services{ background: var(--surface); }
+
+  .service-grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .service-card{
+    background: var(--surface);
+    padding: 42px 34px;
+    grid-column: span 6;
+    transition: background 0.3s ease;
+  }
+  .service-card:hover{ background: var(--surface-2); }
+
+  .service-card.wide{ grid-column: span 4; }
+
+  @media (min-width: 860px){
+    .service-card:nth-child(1){ grid-column: span 7; }
+    .service-card:nth-child(2){ grid-column: span 5; }
+    .service-card:nth-child(3){ grid-column: span 5; }
+    .service-card:nth-child(4){ grid-column: span 7; }
+    .service-card:nth-child(5){ grid-column: span 12; display:flex; align-items:center; gap: 48px; }
+  }
+
+  .service-card .idx{
+    font-family: 'Clash Display', sans-serif;
+    color: var(--gold-dim);
+    font-size: 0.85rem;
+    margin-bottom: 22px;
+    display: block;
+  }
+
+  .service-card h3{
+    font-size: 1.5rem;
+    margin-bottom: 14px;
+  }
+
+  .service-card p{
+    color: var(--text-muted);
+    font-size: 0.97rem;
+    max-width: 380px;
+  }
+
+  .service-card.wide h3{ margin-bottom: 8px; }
+
+  /* ---------- Process ---------- */
+
+  .process-list{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .process-item{
+    display: grid;
+    grid-template-columns: 90px 1fr 1fr;
+    gap: 30px;
+    padding: 36px 0;
+    border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .process-list .process-item:last-child{ border-bottom: 1px solid var(--line); }
+
+  .process-item .step-num{
+    font-family: 'Clash Display', sans-serif;
+    color: var(--gold);
+    font-size: 1.1rem;
+  }
+
+  .process-item h3{ font-size: 1.4rem; }
+
+  .process-item p{ color: var(--text-muted); font-size: 0.96rem; }
+
+  @media (max-width: 720px){
+    .process-item{ grid-template-columns: 50px 1fr; }
+    .process-item p{ grid-column: 2; }
+  }
+
+  /* ---------- Work strip ---------- */
+
+  .work{ background: var(--surface); }
+
+  .work-strip{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-top: 60px;
+  }
+
+  .work-tile{
+    background: var(--surface);
+    aspect-ratio: 4/5;
+    position: relative;
+    overflow: hidden;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .work-tile .grad{
+    position: absolute;
+    inset: 0;
+    opacity: 0.55;
+  }
+
+  .work-tile span{
+    position: relative;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .work-tile strong{
+    position: relative;
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 860px){
+    .work-strip{ grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ---------- Contact ---------- */
+
+  .contact{
+    background: linear-gradient(180deg, var(--bg), #0e0e1a);
+  }
+
+  .contact-inner{
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: end;
+  }
+
+  .contact h2{
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    max-width: 620px;
+  }
+
+  .contact-card{
+    border: 1px solid var(--line);
+    padding: 34px;
+    background: var(--surface);
+  }
+
+  .contact-card .row{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.98rem;
+  }
+  .contact-card .row:last-child{ border-bottom: none; }
+  .contact-card .row span:first-child{ color: var(--text-muted); }
+
+  .contact-card .row a:hover{ color: var(--gold); }
+
+  @media (max-width: 860px){
+    .contact-inner{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 34px 0;
+  }
+  footer .wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  /* ---------- Mobile nav ---------- */
+
+  @media (max-width: 760px){
+    .nav-links{ display: none; }
+    .hero-meta{ flex-wrap: wrap; row-gap: 20px; }
+    #hero-canvas{ width: 100%; opacity: 0.35; }
+  }
+
+  /* ---------- Reduced motion ---------- */
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    .scroll-cue .line{ animation: none; }
+    *{ transition-duration: 0.01ms !important; }
+  }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Samod<span class="dot">.</span>Tech</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn btn-gold" href="https://wa.me/2349137936935" target="_blank" rel="noopener">Chat on WhatsApp</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="eyebrow-line"><span class="stroke"></span> Web developer · Ogun State, Nigeria</div>
+      <h1>Websites that feel <em>alive</em>, built for the way people actually use them.</h1>
+      <p class="lede">I'm Samod — I design and build portfolios, landing pages, booking systems and stores that load fast, move smoothly, and turn visitors into clients. I also produce AI-generated video for brands that need motion without a film crew.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#contact">Start a project</a>
+        <a class="btn btn-ghost" href="#work">See recent work</a>
+      </div>
+      <div class="hero-meta">
+        <div><span class="num">05</span><span class="label">Core services</span></div>
+        <div><span class="num">100%</span><span class="label">Mobile-first builds</span></div>
+        <div><span class="num">NG</span><span class="label">Based in Ogun State</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><div class="line"></div> Scroll</div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="kicker">What I do</span>
+        <h2>Five ways I help brands show up properly online.</h2>
+      </div>
+      <p>Every build starts from what your customer needs to do first — book, buy, browse, or believe you.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-card">
+        <span class="idx">01</span>
+        <h3>Portfolio sites</h3>
+        <p>A site that shows your work the way it deserves — fast, ordered, and easy for a client to skim in under a minute.</p>
+      </div>
+      <div class="service-card">
+        <span class="idx">02</span>
+        <h3>Landing pages</h3>
+        <p>One page, one goal. Built to convert traffic from ads, launches or campaigns into signups and sales.</p>
+      </div>
+      <div class="service-card">
+        <span class="idx">03</span>
+        <h3>Booking systems</h3>
+        <p>Let clients see your availability and reserve a slot without a back-and-forth on WhatsApp.</p>
+      </div>
+      <div class="service-card">
+        <span class="idx">04</span>
+        <h3>E-commerce stores</h3>
+        <p>Product pages, cart and checkout tuned for Nigerian buyers — clear pricing, fast pages, working payments.</p>
+      </div>
+      <div class="service-card wide">
+        <div>
+          <span class="idx">05</span>
+          <h3>AI video production</h3>
+          <p>Promo, product and social videos generated with AI tools — quick turnaround, no studio required.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="kicker">How it runs</span>
+        <h2>Three steps from first message to live site.</h2>
+      </div>
+    </div>
+
+    <div class="process-list">
+      <div class="process-item">
+        <span class="step-num">01</span>
+        <h3>Discover</h3>
+        <p>We talk through what the site needs to do, who it's for, and what "done" looks like for your business.</p>
+      </div>
+      <div class="process-item">
+        <span class="step-num">02</span>
+        <h3>Design &amp; build</h3>
+        <p>I design the layout around your content and build it to be fast and responsive on every screen size.</p>
+      </div>
+      <div class="process-item">
+        <span class="step-num">03</span>
+        <h3>Launch &amp; grow</h3>
+        <p>Your site goes live, and I stay on to handle updates, fixes and new pages as your business grows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="kicker">Recent work</span>
+        <h2>A sample of the kind of builds I ship.</h2>
+      </div>
+      <p>Swap this strip for your own project screenshots once you have a few to show.</p>
+    </div>
+
+    <div class="work-strip">
+      <div class="work-tile" style="background: linear-gradient(135deg, #1c1830, #12121e);">
+        <span>Portfolio</span>
+        <strong>Studio Adire</strong>
+      </div>
+      <div class="work-tile" style="background: linear-gradient(135deg, #241a10, #12121e);">
+        <span>Landing page</span>
+        <strong>Lekki Fit Club</strong>
+      </div>
+      <div class="work-tile" style="background: linear-gradient(135deg, #10221f, #12121e);">
+        <span>Bookings</span>
+        <strong>Glow Bar Salon</strong>
+      </div>
+      <div class="work-tile" style="background: linear-gradient(135deg, #221420, #12121e);">
+        <span>E-commerce</span>
+        <strong>Naija Threads</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-inner">
+    <div>
+      <span class="kicker">Get in touch</span>
+      <h2>Tell me what you're building — I'll reply the same day.</h2>
+    </div>
+    <div class="contact-card">
+      <div class="row"><span>Phone</span><a href="tel:+2349137936935">0913 793 6935</a></div>
+      <div class="row"><span>WhatsApp</span><a href="https://wa.me/2349137936935" target="_blank" rel="noopener">0913 793 6935</a></div>
+      <div class="row"><span>Location</span><span>Ogun State, Nigeria</span></div>
+      <div class="row"><span>Brand</span><span>Samod Tech</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Samod Tech. Built in Ogun State, Nigeria.</span>
+    <span>Portfolio · Landing pages · Bookings · E-commerce · AI video</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  (function(){
+    var canvas = document.getElementById('hero-canvas');
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
+    camera.position.set(0, 0, 8);
+
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    function resize(){
+      var w = canvas.clientWidth, h = canvas.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+
+    // Core wireframe icosahedron
+    var geo = new THREE.IcosahedronGeometry(2.6, 1);
+    var mat = new THREE.MeshBasicMaterial({ color: 0xf2a93b, wireframe: true, transparent: true, opacity: 0.55 });
+    var core = new THREE.Mesh(geo, mat);
+    scene.add(core);
+
+    var innerGeo = new THREE.IcosahedronGeometry(1.7, 0);
+    var innerMat = new THREE.MeshBasicMaterial({ color: 0x6e6ade, wireframe: true, transparent: true, opacity: 0.35 });
+    var innerCore = new THREE.Mesh(innerGeo, innerMat);
+    scene.add(innerCore);
+
+    // Particle field
+    var particleCount = 220;
+    var positions = new Float32Array(particleCount * 3);
+    for (var i = 0; i < particleCount; i++){
+      var r = 4.2 + Math.random() * 2.2;
+      var theta = Math.random() * Math.PI * 2;
+      var phi = Math.acos((Math.random() * 2) - 1);
+      positions[i*3] = r * Math.sin(phi) * Math.cos(theta);
+      positions[i*3+1] = r * Math.sin(phi) * Math.sin(theta);
+      positions[i*3+2] = r * Math.cos(phi);
+    }
+    var pGeo = new THREE.BufferGeometry();
+    pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    var pMat = new THREE.PointsMaterial({ color: 0xf5f3ee, size: 0.035, transparent: true, opacity: 0.5 });
+    var particles = new THREE.Points(pGeo, pMat);
+    scene.add(particles);
+
+    var mouseX = 0, mouseY = 0;
+    window.addEventListener('mousemove', function(e){
+      mouseX = (e.clientX / window.innerWidth - 0.5);
+      mouseY = (e.clientY / window.innerHeight - 0.5);
+    });
+
+    var clock = new THREE.Clock();
+
+    function animate(){
+      requestAnimationFrame(animate);
+      var t = clock.getElapsedTime();
+
+      if (!prefersReduced){
+        core.rotation.y = t * 0.12;
+        core.rotation.x = t * 0.06;
+        innerCore.rotation.y = -t * 0.09;
+        innerCore.rotation.x = t * 0.04;
+        particles.rotation.y = t * 0.02;
+
+        camera.position.x += (mouseX * 1.4 - camera.position.x) * 0.03;
+        camera.position.y += (-mouseY * 1.4 - camera.position.y) * 0.03;
+        camera.lookAt(scene.position);
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    animate();
+  })();
+</script>
+
+</body>
+</html>
